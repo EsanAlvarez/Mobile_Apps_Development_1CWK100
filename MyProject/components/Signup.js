@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, ActivityIndicator, FlatList, Text, TouchableOpacity, StyleSheet, Button, ToastAndroid } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ToastAndroid } from 'react-native';
 import { TextInput, ScrollView } from 'react-native-gesture-handler';
 
 class Signup extends Component {
@@ -34,12 +34,12 @@ class Signup extends Component {
         } else if (response.status === 400) {
           throw 'Failed validation';
         } else {
-          throw 'Something went wrong';
+          throw 'Something Has Gone Wrong';
         }
       })
       .then(async (responseJson) => {
-        console.log("User created with ID:", responseJson);
-        ToastAndroid.show("Account has been Created", ToastAndroid.SHORT);
+        console.log("User has been created with an ID:", responseJson);
+        ToastAndroid.show("Account Has Been Created", ToastAndroid.SHORT);
         this.props.navigation.navigate("Login");
       })
       .catch((error) => {

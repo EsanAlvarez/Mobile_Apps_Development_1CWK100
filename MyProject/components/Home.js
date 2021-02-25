@@ -12,7 +12,7 @@ class Home extends Component {
         <View style={styles.formItem}>
           <TouchableOpacity
             style={styles.formTouch}
-            onPress={() => this.Login()}
+            onPress={() => navigation.navigate('FindCafe')}
           >
             <Text style={styles.formTouchText}>Find Cafe</Text>
           </TouchableOpacity>

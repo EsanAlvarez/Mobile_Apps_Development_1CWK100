@@ -15,7 +15,6 @@ class Logout extends Component {
             this.checkLoggedIn();
         });
 }
-
     componentWillUnmount() {
         this.unsubscribe();
     }

@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { View, ActivityIndicator, FlatList, Text, TouchableOpacity, StyleSheet, Button, ToastAndroid } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ToastAndroid } from 'react-native';
 import { TextInput, ScrollView } from 'react-native-gesture-handler';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 class Login extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       email: '',
       password: '',
@@ -27,7 +26,7 @@ class Login extends Component {
         } else if (response.status === 400) {
           throw 'Invalid Email or Password';
         } else {
-          throw 'Something went wrong';
+          throw 'Something Has Gone Wrong';
         }
       })
       .then(async (responseJson) => {
