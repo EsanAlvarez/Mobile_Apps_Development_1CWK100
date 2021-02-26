@@ -14,7 +14,7 @@ class Logout extends Component {
         this.unsubscribe = this.props.navigation.addListener('focus', () => {
             this.checkLoggedIn();
         });
-}
+    }
     componentWillUnmount() {
         this.unsubscribe();
     }
@@ -43,7 +43,7 @@ class Logout extends Component {
                     await AsyncStorage.removeItem('@session_token');
                     this.props.navigation.navigate("Login");
                 } else {
-                    throw 'Something Went Wrong';
+                    throw 'Something Went Wrong, Please Try Again';
                 }
             })
             .catch((error) => {
@@ -56,23 +56,23 @@ class Logout extends Component {
         const navigation = this.props.navigation;
         return (
             <View>
-                <Text style={styles.title}>Do you want to Logout?</Text>
-                <View style={styles.formItem}>
+                <Text style={styles.Title}>Do you want to Logout?</Text>
+                <View style={styles.Item}>
                 </View>
-                <View style={styles.formItem}>
+                <View style={styles.Item}>
                     <TouchableOpacity
-                        style={styles.formTouch}
+                        style={styles.TouchOp}
                         onPress={() => this.LogoutUser()}
                     >
-                        <Text style={styles.formTouchText}>Logout</Text>
+                        <Text style={styles.TouchText}>Logout</Text>
                     </TouchableOpacity>
                 </View>
-                <View style={styles.formItem}>
+                <View style={styles.Item}>
                     <TouchableOpacity
-                        style={styles.formTouch}
+                        style={styles.TouchOp2}
                         onPress={() => navigation.navigate('Home')}
                     >
-                        <Text style={styles.formTouchText}>Go Back</Text>
+                        <Text style={styles.TouchText2}>Go Back</Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -81,50 +81,50 @@ class Logout extends Component {
 }
 
 const styles = StyleSheet.create({
-    title: {
-        color: 'white',
+    Title: {
         backgroundColor: 'crimson',
+        color: 'white',
         fontStyle: 'italic',
         fontWeight: 'bold',
         textAlign: 'center',
         padding: 10,
         fontSize: 30,
     },
-    formItem: {
-        padding: 25
+    Item: {
+        padding: 25,
     },
-    formLabel: {
+    Label: {
         fontSize: 20,
         color: 'white',
-        alignItems: 'center'
+        alignItems: 'center',
     },
-    formInput: {
+    Input: {
         borderWidth: 2,
         borderColor: 'lightblue',
-        borderRadius: 5
+        borderRadius: 5,
     },
-    formTouch: {
+    TouchOp: {
         backgroundColor: 'crimson',
         alignItems: 'center',
-        padding: 7
+        padding: 7,
     },
-    formTouch2: {
+    TouchOp2: {
         borderColor: 'crimson',
         borderRadius: 5,
         borderWidth: 2,
         backgroundColor: 'white',
         alignItems: 'center',
-        padding: 7
+        padding: 7,
     },
-    formTouchText: {
+    TouchText: {
         fontSize: 17,
         fontWeight: 'bold',
-        color: 'white'
+        color: 'white',
     },
-    formTouchText2: {
+    TouchText2: {
         fontSize: 17,
         fontWeight: 'bold',
-        color: 'crimson'
+        color: 'crimson',
     }
 });
 

@@ -8,18 +8,18 @@ async function requestLocationPermission() {
     const granted = await PermissionsAndroid.request(
       PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
       {
-        title: 'Location Permission',
-        message: 'This app requires to your location.',
-        buttonNeutral: 'Ask me Later',
+        title: 'Location Permission is Required',
+        message: 'Coffida Requires Your Location',
+        buttonNeutral: 'Try Again Later',
         buttonNegative: 'Cancel',
         buttonPositive: 'Ok',
       },
     );
     if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-      console.log('You can access location');
+      console.log('Location Access Granted');
       return true;
     } else {
-      console.log('Location permission denied');
+      console.log('Location Permission was Denied');
       return false;
     }
   } catch (err) {
@@ -37,10 +37,10 @@ class FindCafe extends Component {
     }
   }
 
-  findCoordinates(){
+  findCoordinates() {
     console.log("state", this.state);
-    if(!this.state.locationPermission){
-      console.log("asking for permission");
+    if (!this.state.locationPermission) {
+      console.log("Waiting for Permission Being Granted...");
       this.state.locationPermission = requestLocationPermission();
     }
 
@@ -54,12 +54,13 @@ class FindCafe extends Component {
 
     Geolocation.getCurrentPosition((position) => {
       const location = position;
-      this.setState({location: {
-        longitude: location.coords.longitude,
-        latitude: location.coords.latitude,
-      },
-    });
-    this.setState({isLoading: false});
+      this.setState({
+        location: {
+          longitude: location.coords.longitude,
+          latitude: location.coords.latitude,
+        },
+      });
+      this.setState({ isLoading: false });
     }, (error) => {
       Alert.alert(error.message);
     }, {
@@ -74,7 +75,7 @@ class FindCafe extends Component {
   }
 
   render() {
-    if (this.state.isLoading){
+    if (this.state.isLoading) {
       return (
         <View>
           <Text>Loading...</Text>
@@ -83,10 +84,10 @@ class FindCafe extends Component {
     } else {
       console.log("LOCATION 2: ", this.state.location);
       return (
-        <View style={styles.container}>
+        <View style={styles.Container}>
           <MapView
             provider={PROVIDER_GOOGLE}
-            style={styles.mapsview}
+            style={styles.Mapsview}
             region={{
               latitude: this.state.location.latitude,
               longitude: this.state.location.longitude,
@@ -96,8 +97,8 @@ class FindCafe extends Component {
           >
             <Marker
               coordinate={this.state.location}
-              title="My location"
-              description="Here I am"
+              title="You"
+              description="I am Here"
             />
           </MapView>
         </View>
@@ -107,40 +108,40 @@ class FindCafe extends Component {
 }
 
 const styles = StyleSheet.create({
-  title: {
-    color: 'white',
+  Title: {
     backgroundColor: 'crimson',
+    color: 'white',
     fontStyle: 'italic',
     fontWeight: 'bold',
     textAlign: 'center',
     padding: 14,
     fontSize: 30,
   },
-  container: {
+  Container: {
     flex: 1,
   },
-  mapsview: {
+  Mapsview: {
     flex: 1,
   },
-  formItem: {
+  Item: {
     padding: 24
   },
-  formLabel: {
+  Label: {
     fontSize: 20,
     color: 'crimson',
     alignItems: 'center'
   },
-  formInput: {
+  Input: {
     borderWidth: 2,
     borderColor: 'crimson',
     borderRadius: 5
   },
-  formTouch: {
+  TouchOp: {
     backgroundColor: 'crimson',
     alignItems: 'center',
     padding: 7
   },
-  formTouch2: {
+  TouchOp2: {
     borderColor: 'crimson',
     borderRadius: 5,
     borderWidth: 2,
@@ -148,12 +149,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 7
   },
-  formTouchText: {
+  TouchText: {
     fontSize: 17,
     fontWeight: 'bold',
     color: 'white'
   },
-  formTouchText2: {
+  TouchText2: {
     fontSize: 17,
     fontWeight: 'bold',
     color: 'crimson'

@@ -26,7 +26,7 @@ class Login extends Component {
         } else if (response.status === 400) {
           throw 'Invalid Email or Password';
         } else {
-          throw 'Something Has Gone Wrong';
+          throw 'Something Has Gone Wrong, Please Try Again';
         }
       })
       .then(async (responseJson) => {
@@ -45,42 +45,42 @@ class Login extends Component {
     return (
       <View>
         <ScrollView>
-          <Text style={styles.title}>Coffida</Text>
-          <View style={styles.formItem}>
+          <Text style={styles.Title}>Coffida</Text>
+          <View style={styles.Item}>
           </View>
-          <View style={styles.formItem}>
-            <Text style={styles.formLabel}>Email:</Text>
+          <View style={styles.Item}>
+            <Text style={styles.Label}>Email:</Text>
             <TextInput
               placeholder="Enter Email"
-              style={styles.formInput}
+              style={styles.Input}
               onChangeText={(email) => this.setState({ email })}
               value={this.state.email}
             />
           </View>
-          <View style={styles.formItem}>
-            <Text style={styles.formLabel}>Password:</Text>
+          <View style={styles.Item}>
+            <Text style={styles.Label}>Password:</Text>
             <TextInput
               placeholder="Enter Password"
-              style={styles.formInput}
+              style={styles.Input}
               secureTextEntry
               onChangeText={(password) => this.setState({ password })}
               value={this.state.password}
             />
           </View>
-          <View style={styles.formItem}>
+          <View style={styles.Item}>
             <TouchableOpacity
-              style={styles.formTouch}
+              style={styles.TouchOp}
               onPress={() => this.Login()}
             >
-              <Text style={styles.formTouchText}>Login</Text>
+              <Text style={styles.TouchText}>Login</Text>
             </TouchableOpacity>
           </View>
-          <View style={styles.formItem}>
+          <View style={styles.Item}>
             <TouchableOpacity
-              style={styles.formTouch2}
+              style={styles.TouchOp2}
               onPress={() => navigation.navigate('Signup')}
             >
-              <Text style={styles.formTouchText2}>Sign Up</Text>
+              <Text style={styles.TouchText2}>Sign Up</Text>
             </TouchableOpacity>
           </View>
         </ScrollView>
@@ -90,50 +90,50 @@ class Login extends Component {
 }
 
 const styles = StyleSheet.create({
-  title: {
-    color: 'white',
+  Title: {
     backgroundColor: 'crimson',
+    color: 'white',
     fontStyle: 'italic',
     fontWeight: 'bold',
     textAlign: 'center',
-    padding: 14,
-    fontSize: 30,
+    padding: 15,
+    fontSize: 40,
   },
-  formItem: {
-    padding: 24
+  Item: {
+    padding: 22,
   },
-  formLabel: {
+  Label: {
     fontSize: 20,
     color: 'crimson',
-    alignItems: 'center'
+    alignItems: 'center',
   },
-  formInput: {
+  Input: {
     borderWidth: 2,
     borderColor: 'crimson',
-    borderRadius: 5
+    borderRadius: 5,
   },
-  formTouch: {
+  TouchOp: {
     backgroundColor: 'crimson',
     alignItems: 'center',
-    padding: 7
+    padding: 7,
   },
-  formTouch2: {
+  TouchOp2: {
     borderColor: 'crimson',
     borderRadius: 5,
     borderWidth: 2,
     backgroundColor: 'white',
     alignItems: 'center',
-    padding: 7
+    padding: 7,
   },
-  formTouchText: {
+  TouchText: {
     fontSize: 17,
     fontWeight: 'bold',
-    color: 'white'
+    color: 'white',
   },
-  formTouchText2: {
+  TouchText2: {
     fontSize: 17,
     fontWeight: 'bold',
-    color: 'crimson'
+    color: 'crimson',
   }
 })
 

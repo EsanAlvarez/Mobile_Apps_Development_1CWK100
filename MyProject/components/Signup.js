@@ -34,11 +34,11 @@ class Signup extends Component {
         } else if (response.status === 400) {
           throw 'Failed validation';
         } else {
-          throw 'Something Has Gone Wrong';
+          throw 'Something Has Gone Wrong, Please Try Again';
         }
       })
       .then(async (responseJson) => {
-        console.log("User has been created with an ID:", responseJson);
+        console.log("User Account Has Been Createed With an ID:", responseJson);
         ToastAndroid.show("Account Has Been Created", ToastAndroid.SHORT);
         this.props.navigation.navigate("Login");
       })
@@ -52,60 +52,60 @@ class Signup extends Component {
     return (
       <View>
         <ScrollView>
-          <Text style={styles.title}>Create an Account</Text>
-          <View style={styles.formItem}>
-            <Text style={styles.formLabel}>First Name:</Text>
+          <Text style={styles.Title}>Create an Account</Text>
+          <View style={styles.Item}>
+            <Text style={styles.Label}>First Name:</Text>
             <TextInput
               placeholder="Enter Firstname"
-              style={styles.formInput}
+              style={styles.Input}
               onChangeText={(first_name) => this.setState({ first_name })}
               value={this.state.firstName}
             />
           </View>
-          <View style={styles.formItem}>
-            <Text style={styles.formLabel}>Last Name:</Text>
+          <View style={styles.Item}>
+            <Text style={styles.Label}>Last Name:</Text>
             <TextInput
               placeholder="Enter Lastname"
-              style={styles.formInput}
+              style={styles.Input}
               onChangeText={(last_name) => this.setState({ last_name })}
               value={this.state.lastName}
             />
           </View>
-          <View style={styles.formItem}>
-            <Text style={styles.formLabel}>Email:</Text>
+          <View style={styles.Item}>
+            <Text style={styles.Label}>Email:</Text>
             <TextInput
               placeholder="Enter Email"
-              style={styles.formInput}
+              style={styles.Input}
               onChangeText={(email) => this.setState({ email })}
               value={this.state.email}
             />
           </View>
-          <View style={styles.formItem}>
-            <Text style={styles.formLabel}>Password:</Text>
+          <View style={styles.Item}>
+            <Text style={styles.Label}>Password:</Text>
             <TextInput
               placeholder="Enter Password"
-              style={styles.formInput}
+              style={styles.Input}
               secureTextEntry
               onChangeText={(password) => this.setState({ password })}
               value={this.state.password}
             />
           </View>
-          <View style={styles.formItem}>
-            <Text style={styles.formLabel}>Confirm Password:</Text>
+          <View style={styles.Item}>
+            <Text style={styles.Label}>Confirm Password:</Text>
             <TextInput
               placeholder="Enter Password"
-              style={styles.formInput}
+              style={styles.Input}
               secureTextEntry
               onChangeText={(confirm_pass) => this.setState({ confirm_pass })}
               value={this.state.confirmPass}
             />
           </View>
-          <View style={styles.formItem}>
+          <View style={styles.Item}>
             <TouchableOpacity
-              style={styles.formTouch}
+              style={styles.TouchOp}
               onPress={() => this.AddUser()}
             >
-              <Text style={styles.formTouchText}>Sign Up</Text>
+              <Text style={styles.TouchText}>Sign Up</Text>
             </TouchableOpacity>
           </View>
         </ScrollView>
@@ -115,36 +115,36 @@ class Signup extends Component {
 }
 
 const styles = StyleSheet.create({
-  title: {
-    color: 'white',
+  Title: {
     backgroundColor: 'crimson',
+    color: 'white',
     fontStyle: 'italic',
     fontWeight: 'bold',
     textAlign: 'center',
-    padding: 10,
-    fontSize: 25
+    padding: 12,
+    fontSize: 26,
   },
-  formItem: {
-    padding: 20
+  Item: {
+    padding: 15,
   },
-  formLabel: {
-    fontSize: 15,
-    color: 'crimson'
+  Label: {
+    fontSize: 17,
+    color: 'crimson',
   },
-  formInput: {
+  Input: {
     borderWidth: 2,
     borderColor: 'crimson',
-    borderRadius: 5
+    borderRadius: 5,
   },
-  formTouch: {
+  TouchOp: {
     backgroundColor: 'crimson',
-    padding: 10,
-    alignItems: 'center'
+    padding: 11,
+    alignItems: 'center',
   },
-  formTouchText: {
-    fontSize: 20,
+  TouchText: {
+    fontSize: 21,
     fontWeight: 'bold',
-    color: 'white'
+    color: 'white',
   }
 })
 
