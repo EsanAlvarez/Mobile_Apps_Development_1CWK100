@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     padding: 14,
-    fontSize: 30,
+    fontSize: 25,
   },
   Container: {
     flex: 1,
@@ -127,35 +127,35 @@ const styles = StyleSheet.create({
     padding: 24
   },
   Label: {
-    fontSize: 20,
+    fontSize: 18,
     color: 'crimson',
     alignItems: 'center'
   },
   Input: {
     borderWidth: 2,
     borderColor: 'crimson',
-    borderRadius: 5
+    borderRadius: 4
   },
   TouchOp: {
     backgroundColor: 'crimson',
     alignItems: 'center',
-    padding: 7
+    padding: 6
   },
   TouchOp2: {
     borderColor: 'crimson',
-    borderRadius: 5,
-    borderWidth: 2,
+    borderRadius: 4,
+    borderWidth: 3,
     backgroundColor: 'white',
     alignItems: 'center',
-    padding: 7
+    padding: 6
   },
   TouchText: {
-    fontSize: 17,
+    fontSize: 15,
     fontWeight: 'bold',
     color: 'white'
   },
   TouchText2: {
-    fontSize: 17,
+    fontSize: 15,
     fontWeight: 'bold',
     color: 'crimson'
   }
